@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.mywheather.R;
 import com.example.mywheather.adapter.RecyclerTouchListener;
@@ -47,6 +48,8 @@ public class homeFragment extends Fragment {
         adapter = new WeatherAdapter(viewModel.getList().getValue());
         adapter.notifyDataSetChanged();
 
+        Toast toast = Toast.makeText(getContext(), "Weather card deleted!", Toast.LENGTH_LONG);
+
 
         recyclerView = view.findViewById(R.id.RecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
@@ -65,6 +68,7 @@ public class homeFragment extends Fragment {
                 adapter = new WeatherAdapter(viewModel.getList().getValue());
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
+                toast.show();
             }
         }));
 

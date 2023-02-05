@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.mywheather.R;
 import com.example.mywheather.adapter.RecyclerTouchListener;
@@ -51,6 +52,7 @@ public class searchFragment extends Fragment {
         list = new ArrayList<>();
         editText = view.findViewById(R.id.searchCity);
         recyclerView = view.findViewById(R.id.RecyclerView2);
+        Toast toast = Toast.makeText(getContext(), "Weather card added!", Toast.LENGTH_LONG);
 
         WeatherAdapter adapter = new WeatherAdapter(list);
 
@@ -64,6 +66,7 @@ public class searchFragment extends Fragment {
             @Override
             public void onLongClick(View view, int position) {
                 viewModel.addToList(list.get(position));
+                toast.show();
             }
         }));
 
@@ -80,6 +83,7 @@ public class searchFragment extends Fragment {
                         recyclerView.setAdapter(adapter);
                         adapter.notifyDataSetChanged();
                         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false));
+
                     }
                 });
             }
