@@ -62,11 +62,7 @@ public class searchFragment extends Fragment {
 
             @Override
             public void onLongClick(View view, int position) {
-                System.out.println("The position is " + position);
-                System.out.println(view.toString());
                 viewModel.addToList(list.get(position));
-                System.out.println("this is what is parsed" + list.get(position).toString());
-                System.out.println("viewmodel to string "+ viewModel.toString());
             }
         }));
 
@@ -84,15 +80,6 @@ public class searchFragment extends Fragment {
                         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false));
                     }
                 });
-                /*WeatherModel model = viewModel.getSearchedWeather().getValue();
-                if(model != null)
-                {
-                    list.add(model);
-                    recyclerView.setAdapter(adapter);
-                    adapter.notifyDataSetChanged();
-                    recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false));
-                }*/
-
             }
         });
 
