@@ -30,7 +30,7 @@ public class searchFragment extends Fragment {
     private EditText editText;
     private WeatherViewModel viewModel;
     private RecyclerView recyclerView;
-    private List<WeatherModel> list = new ArrayList<>();
+    private List<WeatherModel> list;
 
 
     public searchFragment() {
@@ -48,6 +48,7 @@ public class searchFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         viewModel = new ViewModelProvider(this).get(WeatherViewModel.class);
+        list = new ArrayList<>();
         editText = view.findViewById(R.id.searchCity);
         recyclerView = view.findViewById(R.id.RecyclerView2);
 
@@ -73,6 +74,7 @@ public class searchFragment extends Fragment {
                 viewModel.getSearchedWeather().observe(getViewLifecycleOwner(), new Observer<WeatherModel>() {
                     @Override
                     public void onChanged(WeatherModel weatherModel) {
+                        list.clear();
                         if(!list.contains(weatherModel))
                             list.add(weatherModel);
                         recyclerView.setAdapter(adapter);
