@@ -21,14 +21,12 @@ public class OfflineRepository {
     private WeatherDAO weatherDao;
     private LiveData<List<WeatherModel>> listLiveData;
     private ExecutorService executorService;
-    //private Handler mainThreadHandler;
     private static OfflineRepository instance;
 
     private OfflineRepository(Application application){
         WeatherDatabase database = WeatherDatabase.getInstance(application);
         weatherDao = database.weatherDao();
         executorService = Executors.newFixedThreadPool(2);
-        //mainThreadHandler = HandlerCompat.createAsync(Looper.getMainLooper());
         listLiveData = weatherDao.getAll();
     }
 
@@ -45,7 +43,6 @@ public class OfflineRepository {
 
     public void insert(WeatherModel model){
         executorService.execute(()->weatherDao.insert(model));
-        System.out.println("INSERTED MODEL IN DATABASE " + model.toString() +"  ");
     }
 
     public void delete(WeatherModel model){

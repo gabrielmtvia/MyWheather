@@ -44,8 +44,6 @@ public class homeFragment extends Fragment {
 
         viewModel = new ViewModelProvider(this).get(WeatherViewModel.class);
 
-        System.out.println("viewmodel to string on home fragment "+ viewModel);
-
         adapter = new WeatherAdapter(viewModel.getList().getValue());
         adapter.notifyDataSetChanged();
 

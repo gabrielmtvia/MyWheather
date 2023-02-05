@@ -39,7 +39,6 @@ public class WeatherRepository {
             public void onResponse(Call<WResponse> call, Response<WResponse> response) {
                 if(response.isSuccessful()){
                     searchedWeatherData.setValue(response.body().getWeather());
-                    System.out.println(response.body().getWeather().toString());
                 }
             }
             @EverythingIsNonNull

@@ -20,7 +20,6 @@ public class WResponse {
 
 	public WeatherModel getWeather(){
 		WeatherModel model = new WeatherModel(getLocation().getName(), getLocation().getRegion(), getLocation().getLocaltime(), "http:"+getCurrent().getCondition().getIcon(), (double) getCurrent().getTempC());
-		System.out.println(model);
 		return model;
 	}
 }

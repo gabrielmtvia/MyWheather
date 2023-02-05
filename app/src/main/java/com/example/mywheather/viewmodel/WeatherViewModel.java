@@ -17,7 +17,6 @@ import java.util.List;
 public class WeatherViewModel extends AndroidViewModel {
 
     private WeatherRepository repository;
-    private LiveData<List<WeatherModel>> mainList;
     private OfflineRepository offlineRepository;
 
 
@@ -25,7 +24,6 @@ public class WeatherViewModel extends AndroidViewModel {
         super(app);
         offlineRepository = OfflineRepository.getInstance(app);
         repository = WeatherRepository.getInstance();
-        mainList = offlineRepository.getListLiveData();
     }
 
     public LiveData<WeatherModel> getSearchedWeather(){
@@ -46,7 +44,6 @@ public class WeatherViewModel extends AndroidViewModel {
 
     public void addToList(WeatherModel model){
         offlineRepository.insert(model);
-        System.out.println("temporary added "  + model.toString());
     }
 
     public void removeFromList(WeatherModel model){
