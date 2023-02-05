@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.mywheather.view.fragments.homeFragment"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.mywheather.view.fragments.searchFragment"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:layout="@layout/fragment_search" />
+
+</navigation>
